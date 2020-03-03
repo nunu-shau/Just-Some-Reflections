@@ -1,5 +1,15 @@
 关于operation system的起源：
 
-在最初计算机被发明的时候，计算机的一系列执行语句需要打印在纸上，再将纸堆叠起来放在reader中。也就是give computer one program at a time。等一个程序运行结束之后，才可以继续将别的程序放入计算机中。
+1. 在最初计算机被发明的时候，计算机的一系列执行语句需要打印在纸上，再将纸堆叠起来放在punch card reader中。也就是give computer one program at a time。等一个程序运行结束之后，才可以继续将别的程序放入计算机中。
 这部分的工作话费的时间要比计算机运行程序的时间还要长。所以我们需要一个operation system来帮我们完成这个步骤。
-operation system本身就是一个program。
+operation system本身就是一个program。它的出现使得计算机可以batch processing。也就是：不需要每次计算机运行完一个程序后，工作人员去办公室把另一个程序的纸给抱过来，放入计算机中再执行。batch processing让计算机每次执行完一个程序后，自动执行下一个。
+
+2. Peripherals问题。programmer在设计程序的时候，只考虑到自己的一套计算机系统，即CUP, punch card reader and printer。虽然不同的计算机可能CPU一样，但是各自的printer都不相同。或者说有不同的peripherals。programmer需要知道intimate hardware details about each device(low level)。为了解决这个问题，OS is implemented as intermediaries between software programs and hardware peripherals。More specifically, they provided a software abstraction, called device driver, through APIs. 例如：programmers could call a function like ‘print highscore’, and the OS would do the heavy lifting to get it onto paper.
+
+3. Multitasking。 4 paper tape readers, 4 paper tape punches, 8 magnetic tape drives。因为外设的速度比起CPU要慢很多，所以为了充分利用CPU资源，需要让CPU同时运行多个program。比如当print程序运行结束，在等待printer的时候，CPU可以让print程序暂时休眠，先运行别的program. This has many programs running simultaneously on a single computer。
+
+4. Memory allocation问题。为了使CPU同时运行多个程序，我们需要为每个程序分配一定的内存空间。如果一个程序运行一整天的话，运行结果会被存在different blocks of memory。To hide this complexity, operating system virtualise memory locations. With Virtual Memory, programs can assume their memory always starts at address 0. 
+
+5. Multi-users problem. Like one computer in connected to 50 terminals. Time-sharing解决了多用户的问题。因为CPU计算能力强大，哪怕只是得到1/50的资源也足够一个用户使用。
+
+6. Unix: seperate OS into two parts. One is core functionality of the OS, things like memory management, multitasking, dealing with I/O, which is called kernel. The second part is  a wide array of useful tools that came bundle with, but not part of the kernel, things like programs and libraries. 
