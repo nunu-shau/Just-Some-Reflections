@@ -1,0 +1,5 @@
+关于operation system的起源：
+
+在最初计算机被发明的时候，计算机的一系列执行语句需要打印在纸上，再将纸堆叠起来放在reader中。也就是give computer one program at a time。等一个程序运行结束之后，才可以继续将别的程序放入计算机中。
+这部分的工作话费的时间要比计算机运行程序的时间还要长。所以我们需要一个operation system来帮我们完成这个步骤。
+operation system本身就是一个program。
