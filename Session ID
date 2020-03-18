@@ -23,3 +23,4 @@ Once the session id is used and is allowed by the server to resume, the server s
 If the server does not want to resume the session, or if the session id sent by the client is not found in the server"s cache, the server should return a new session id to
 force a new SSL handshake with the client.
 说明：session ID是和ssl parameters联系的。新的session id就表示two ends需要使用新的parameter进行通信。
+if we had previously connected, then the cached session id can be used again for the latest session.
