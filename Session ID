@@ -1,0 +1,25 @@
+In computer science and networking in particular, a session is a temporary and interactive information interchange between two or more communicating devices, or between a computer and user (see login session). 
+A session is established at a certain point in time, and then ‘torn down’ - brought to an end - at some later point. 
+An established communication session may involve more than one message in each direction. A session is typically stateful, meaning that at least one of the communicating parties needs to hold current state information and save information about the session history in order to be able to communicate, as opposed to stateless communication, where the communication consists of independent requests with responses.
+
+An established session is the basic requirement to perform a connection-oriented communication. 
+A session also is the basic step to transmit in connectionless communication modes. 
+However any unidirectional transmission does not define a session.
+
+
+Seesion ID:
+In computer science, a session identifier, session ID or session token is a piece of data that is used in network communications (often over HTTP) to identify a session, a series of related message exchanges. 
+Session identifiers become necessary in cases where the communications infrastructure uses a stateless protocol such as HTTP. For example, a buyer who visits a seller's website wants to collect a number of articles in a virtual shopping cart and then finalize the shopping by going to the site's checkout page. 
+This typically involves an ongoing communication where several webpages are requested by the client and sent back to them by the server. In such a situation, it is vital to keep track of the current state of the shopper's cart, and a session ID is one way to achieve that goal.
+
+
+Session ID in SSL:
+According to TLS/SSL specification, when a SSL client first negotiates a SSL connection with its peer (the server,in the language of TLS specification), the server may choose to return an assigned session ID to the client. 
+This indicates that the server is willing to resume this SSL session using the same SSL parameters and cipher suites negotiated in the first hand-shake.
+
+However, if the server is not willing to resume this SSL session at a later time, it should return an empty session id to the client.
+
+Once the session id is used and is allowed by the server to resume, the server should return a server hello message with the same session id. 
+If the server does not want to resume the session, or if the session id sent by the client is not found in the server"s cache, the server should return a new session id to
+force a new SSL handshake with the client.
+说明：session ID是和ssl parameters联系的。新的session id就表示two ends需要使用新的parameter进行通信。
